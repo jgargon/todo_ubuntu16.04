@@ -1,4 +1,4 @@
-# Instalar Nginx
+# Instalar Servidor Web Nginx
 
 Para instalar Nginx usar el gestor de paquetes apt:
 
