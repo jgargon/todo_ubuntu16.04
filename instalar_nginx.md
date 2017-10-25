@@ -2,6 +2,8 @@
 
 [[TOC]]
 
+<div class="toc"></div>
+
 Para instalar Nginx usar el gestor de paquetes apt:
 
 ```bash
@@ -360,3 +362,27 @@ Abrir un navegador web y escribir la URL _http://localhost:8080_, si todo ha ido
 <kbd>![img09](/images/02_upload_nginx_content/img09.png)</kbd>
 
 No hace falta añadir el nombre del archivo _index.html_ a la dirección web, los servidores web, si no se le indica el nombre de la página web, busca por defecto el fichero _index.html_.
+
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        var str = "";
+        $(function() {
+            $('.markdown-body')
+            .find('h1, h2, h3, h4, h5, h6, h7')
+            .each((i, node) => {
+                // node.tagName is H1 H2...
+                let indent = Number(node.tagName[1]) - 1;
+                // markdown mested lists are
+                // - xxx
+                //    - yyy etc
+                let tabs = '               '.substr(0, 3 * indent);
+                let linkName = node.textContent.trim();
+                //let linkAnchor = node.querySelector('a').id;
+                //str += `\n${tabs}- [${linkName}](#${linkAnchor})`;
+                str += `\n${tabs}- [${linkName}]`;
+            });
+            console.log(str);
+            $('.toc').append(str);
+        })
+    </script>   
